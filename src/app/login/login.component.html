@@ -9,14 +9,16 @@
         <!-- On form submit, we call the Login event with the username and the password from the inputs -->
        <form  [ngFormModel]="form"  (submit)="login($event)">
         <fieldset>
-            <div class="form-group">
+            <div class="form-group has-feedback">
                 <input ngControl="username" class="form-control" #username placeholder="Username" name="username" type="text" autofocus  maxlength="20">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 <div class="control-msgs" *ngIf="username.dirty && !username.valid && !username.pending">
           			  <p  *ngIf="username.errors.required">Username is required.</p>
           			</div>
             </div>
-            <div class="form-group">
-                <input ngControl="password" class="form-control" #password placeholder="Password" name="password" type="password" value="" maxlength="20">
+            <div class="form-group has-feedback">
+                <input ngControl="password" class="form-control" #password placeholder="Password" name="password" type="password" value="" maxlength="200">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 <div class="control-msgs" *ngIf="password.dirty && !password.valid && !password.pending">
                   <p *ngIf="password.errors.required">Password is required.</p>
           			</div>
